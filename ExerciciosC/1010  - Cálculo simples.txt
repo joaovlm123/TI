@@ -1,0 +1,12 @@
+#include <stdio.h>
+ 
+int main() { 
+int C = 0, N = 0,  C2 = 0, N2 = 0;
+double V = 0, V2 = 0, T = 0;
+
+       scanf("%d %d %lf", &C,&N,&V);
+       scanf("%d %d %lf", &C2,&N2,&V2);
+       T = (V*N)+(V2*N2);
+       printf("VALOR A PAGAR: R$ %.2lf\n",T);
+    return 0;
+}

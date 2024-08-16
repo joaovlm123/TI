@@ -190,6 +190,3 @@ printf("Escolha entre:\n\n0.sair\n1.Soma\n2.Subtração\n3.Multiplicação\n4.Di
     break; }
     return 0;
 }
-//obs: Professor, eu tentei não usar biblioteca math, e fazer funcões, mas não consegui!
-//obs: Tentei pesquisar, assistir vídeo e tudo mais, mas não consegui...
-//obs: Espero que o senhor possa considerar pelo menos a tentativa...

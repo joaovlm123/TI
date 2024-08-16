@@ -1,0 +1,12 @@
+#include <stdio.h>
+ 
+int main() {
+ 
+ double dis, lit, res;
+ 
+ scanf("%lf",&dis);
+ scanf("%lf",&lit);
+ res = dis/lit;
+ printf("%.3lf km/l\n",res);
+    return 0;
+}

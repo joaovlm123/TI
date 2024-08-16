@@ -1,6 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+
+void Soma();
+void Subtração();
+void Multiplicação();
+void Divisão();
+int Potenciação();
+void RaizQuadrada();
+void Fatorial();
+void MDC();
+void MMC();
+void EquaçãodeSegundoGrau();
+
 int main()
 
 { int escolha = -1, num1, num2, result;
@@ -20,16 +32,53 @@ printf("Escolha entre:\n\n0.sair\n1.Soma\n2.Subtração\n3.Multiplicação\n4.Di
     printf("Sair\n");
     break;
     case 1:
-    printf("Sua escolha foi: Soma\n\n");
+        Soma();
+    break;
+    case 2:
+        Subtração();
+    break;
+    case 3:
+        Multiplicação();
+    break;
+    case 4:
+        Divisão();
+    break;
+    case 5:
+        Potenciação();
+    break;
+    case 6:
+        RaizQuadrada();
+    break;
+    case 7:
+        Fatorial();
+    break;
+    case 8:
+        MDC();
+    break;
+    case 9:
+        MMC();
+    break;
+    case 10:
+        EquaçãodeSegundoGrau();
+    break; }
+    return 0;
+}
+
+void Soma()
+{
+   printf("Sua escolha foi: Soma\n\n");
     {float num1, num2, result;
      printf("Digite seu primeiro número: ");
      scanf("%f", &num1);
      printf("Digite seu segundo número: ");
      scanf("%f", &num2);
          result = num1 + num2;
-     printf("seu resultado eh: %f",result);}//soma
-    break;
-    case 2:
+     printf("seu resultado eh: %f",result);}//soma 
+    
+}
+
+void Subtração()
+{
     printf("Sua escolha foi: Subtração\n\n");
     {float num1, num2, result;
      printf("Digite seu primeiro número: ");
@@ -38,9 +87,11 @@ printf("Escolha entre:\n\n0.sair\n1.Soma\n2.Subtração\n3.Multiplicação\n4.Di
      scanf("%f", &num2);
          result = num1 - num2;
      printf("seu resultado eh: %f",result);}//Subtração
-    break;
-    case 3:
-    printf("Sua escolha foi: Multiplicação\n\n");
+}
+
+void Multiplicação()
+{
+     printf("Sua escolha foi: Multiplicação\n\n");
     {float num1, num2, result;
      printf("Digite seu primeiro número: ");
      scanf("%f", &num1);
@@ -48,8 +99,10 @@ printf("Escolha entre:\n\n0.sair\n1.Soma\n2.Subtração\n3.Multiplicação\n4.Di
      scanf("%f", &num2);
          result = num1 * num2;
      printf("seu resultado eh: %f",result);}//Multiplicação
-    break;
-    case 4:
+}
+
+void Divisão()
+{
     printf("Sua escolha foi: Divisão\n\n");
     {float num1, num2, result;
      printf("Digite seu primeiro número: ");
@@ -58,8 +111,10 @@ printf("Escolha entre:\n\n0.sair\n1.Soma\n2.Subtração\n3.Multiplicação\n4.Di
      scanf("%f", &num2);
          result = num1 / num2;
      printf("seu resultado eh: %f",result);}//Divisão
-    break;
-    case 5:
+}
+
+int Potenciação()
+{
     printf("Sua escolha foi: Potenciação\n\n");
     {
     int potencia(int num1, int num2) {
@@ -77,29 +132,24 @@ printf("Escolha entre:\n\n0.sair\n1.Soma\n2.Subtração\n3.Multiplicação\n4.Di
     int result = potencia(num1, num2);
     printf("%d elevado a %d é %d\n", num1, num2, result);
     return 0; }}//Potenciação
-    break;
-    case 6:
-    printf("Sua escolha foi: Raiz Quadrada\n\n");
-    {
-    double raizQuadrada(double numero)
-    {
-    if (numero < 0) 
-    {printf("Número negativo não tem raiz quadrada real.\n"); }
-    double precisao = 0.000001; 
-    double estimativa = numero;
-    while (1) {
-    double raiz = 0.5 * (estimativa + (numero / estimativa));
-    if (fabs(raiz - estimativa) < precisao) {break; }
-    estimativa = raiz; }
-    return estimativa;}
-    {double numero;
-    printf("Digite o número para calcular a raiz quadrada: ");
-    scanf("%lf", &numero);
-    double resultado = raizQuadrada(numero);
-    printf("A raiz quadrada de %.2lf é aproximadamente %.6lf\n", numero, resultado);}}//Raiz Quadrada
-    break;
-    case 7:
-    printf("Sua escolha foi: Fatorial\n\n");
+}
+
+void RaizQuadrada()
+{
+    double resultado = 0.0;
+    double a;
+        printf("\nDigite o número: ");
+        scanf("%lf", &a);
+    resultado = 0.5*(a+(a/a));
+    for (int i = 0; i < 50;i++)
+        resultado = 0.5*(resultado+(a/resultado));  
+        printf("\nO resultado da raíz é: %.5lf", resultado);
+    
+   }
+
+void Fatorial()
+{
+   printf("Sua escolha foi: Fatorial\n\n");
     {
     unsigned fatorial(int n) 
     {if (n == 0 || n == 1) {return 1;} return n * fatorial(n - 1);}
@@ -112,8 +162,10 @@ printf("Escolha entre:\n\n0.sair\n1.Soma\n2.Subtração\n3.Multiplicação\n4.Di
         unsigned long long resultado = fatorial(numero);
         printf("O fatorial de %d é %llu\n", numero, resultado);
     }}}//Fatorial
-    break;
-    case 8:
+}
+
+void MDC()
+{
     printf("Sua escolha foi: MDC\n\n");
     {
     int mdc(int num1, int num2) 
@@ -121,16 +173,19 @@ printf("Escolha entre:\n\n0.sair\n1.Soma\n2.Subtração\n3.Multiplicação\n4.Di
         int temp = num2;
         num2 = num1 % num2;
         num1 = temp;
-    } return num1;} {
+    } return num1;} { 
+        int num1,num2;
         printf("Digite o primeiro número: ");
         scanf("%d", &num1);
         printf("Digite o segundo número: ");
         scanf("%d", &num2);
          int resultado = mdc(num1, num2);
         printf("O MDC de %d e %d é %d\n", num1, num2, resultado);}}//MDC
-    break;
-    case 9:
-    printf("Sua escolha foi: MMC\n\n");
+}
+
+void MMC()
+{
+   printf("Sua escolha foi: MMC\n\n");
     {   
     int mdc(int num1, int num2) 
     {while (num2 != 0) 
@@ -141,6 +196,7 @@ printf("Escolha entre:\n\n0.sair\n1.Soma\n2.Subtração\n3.Multiplicação\n4.Di
     int mmc(int num1, int num2) 
     {return (num1*num2) / mdc(num1, num2);}
     { int num1, num2; }
+    int num1,num2;
     printf("Digite o primeiro número: ");
     scanf("%d", &num1);
     printf("Digite o segundo número: ");
@@ -150,8 +206,10 @@ printf("Escolha entre:\n\n0.sair\n1.Soma\n2.Subtração\n3.Multiplicação\n4.Di
     else 
     {   int resultado = mmc(num1, num2);
         printf("O MMC de %d e %d é %d\n", num1, num2, resultado);}}//MMC
-    break;
-    case 10:
+}
+
+void EquaçãodeSegundoGrau()
+{
     printf("Sua escolha foi: Equação de Segundo Grau\n\n");
     {
     double raizQuadrada(double numero)
@@ -187,6 +245,4 @@ printf("Escolha entre:\n\n0.sair\n1.Soma\n2.Subtração\n3.Multiplicação\n4.Di
     printf("Digite o coeficiente c: ");
     scanf("%lf", &num3);
     resolverEquacaoQuadratica(num1, num2, num3);}}//Equação de Segundo Grau
-    break; }
-    return 0;
 }
